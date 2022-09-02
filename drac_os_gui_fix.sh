@@ -20,13 +20,12 @@ fi
 
 
 
-# Fix missing key issue
-KEY_VALUE = null
+# Grab input for KEY_VALUE
 read -p 'Enter the key value shown in error: ' KEY_VALUE
 
 
 # Check for input.  If no input, exit process
-if [[ "${KEY_VALUE}" -e null ]]
+if [[ "${KEY_VALUE}" == "" ]]
 
 then
 	echo "There was no input detected.  Please make sure you have the key ready for input."
@@ -57,7 +56,7 @@ read -p 'Would you like to reboot the system now? (y for yes, Enter for no): ' A
 
 
 # Check to make sure user wants to reboot now
-if [[ "${ANSWER}" -e y ]]
+if [[ "${ANSWER}" == "y" ]]
 
 then
 	reboot
