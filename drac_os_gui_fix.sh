@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This script is used for the DracOS operating system to be able to fix that holes that are present in otder to
+# This script is used for the DracOS operating system to be able to fix the holes that are present in otder to
 # gain a graphical user interface.  Please keep in mind that this is a temporary fix before any major fixes are 
 # made.
 #
@@ -25,7 +25,7 @@ read -p 'Enter the key value shown in error: ' KEY_VALUE
 
 
 # Download and install key
-apt key adv --keyserver keyserver.ubuntu.com --recv-keys ${KEY_VALUE}
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ${KEY_VALUE}
 
 # Check to make sure command works
 if [[ "${?}" -ne 0 ]]
