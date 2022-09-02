@@ -21,7 +21,17 @@ fi
 
 
 # Fix missing key issue
+KEY_VALUE = "null"
 read -p 'Enter the key value shown in error: ' KEY_VALUE
+
+
+# Check for input.  If no input, exit process
+if [[ "${KEY_VALUE}" -e "null" ]]
+
+then
+	echo "There was no input detected.  Please make sure you have the key ready for input."
+	exit 66
+fi
 
 
 # Download and install key
@@ -40,5 +50,18 @@ fi
 # Update/upgrade the system
 apt update && apt upgrade -y
 
-# Reboot the system
-reboot
+
+# Ask whether user wants to restart the system
+ANSWER = "null"
+read -p 'Would you like to reboot the system now? (y for yes, n for no): ' ANSWER
+
+
+# Check to make sure user wants to reboot now
+if [[ "${ANSWER}" -e "y" ]]
+
+then
+	reboot
+else
+	echo "Make sure to reboot system at your earliest convenience to apply changes!"
+	exit 66
+fi
