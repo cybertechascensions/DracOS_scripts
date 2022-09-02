@@ -50,6 +50,10 @@ fi
 apt update && apt upgrade -y
 
 
+# Install lightdm so gui will appear
+apt install lightdm -y
+
+
 # Ask whether user wants to restart the system
 ANSWER = n
 read -p 'Would you like to reboot the system now? (y for yes, Enter for no): ' ANSWER
